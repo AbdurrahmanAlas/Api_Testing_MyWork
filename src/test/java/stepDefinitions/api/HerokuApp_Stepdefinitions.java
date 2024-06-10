@@ -25,6 +25,7 @@ public class HerokuApp_Stepdefinitions {
 
     PojoHerokuappExpectedBody expectedBody;
     Response response;
+
     @Before(order = 0)
     public void beforeAPIScenario() {
         spec = new RequestSpecBuilder()
@@ -36,20 +37,21 @@ public class HerokuApp_Stepdefinitions {
     @Given("URL ve body hazirla")
     public void url_ve_body_hazirla() {
 
-        spec.pathParams("pp1","booking");
+        spec.pathParams("pp1", "booking");
 
- bookingdate = new PojoHerokuappBookingdate("2021-06-01","2021-06-10");
-         reqBody= new PojoHerokuappBooking("Ahmet","Bulut",500,false,"wi-fi",bookingdate);
+        bookingdate = new PojoHerokuappBookingdate("2021-06-01", "2021-06-10");
+        reqBody = new PojoHerokuappBooking("Ahmet", "Bulut", 500, false, "wi-fi", bookingdate);
 
     }
+
     @Given("Expected Data hazirla")
     public void expected_data_hazirla() {
 
-         expectedBody=new PojoHerokuappExpectedBody(24,reqBody);
-
+        expectedBody = new PojoHerokuappExpectedBody(24, reqBody);
 
 
     }
+
     @Given("Response'i kaydet")
     public void response_i_kaydet() {
 
@@ -63,20 +65,19 @@ public class HerokuApp_Stepdefinitions {
 
 
     }
+
     @Given("Assertion")
     public void assertion() {
 
-        PojoHerokuappExpectedBody respPojo=response.as(PojoHerokuappExpectedBody.class);
+        PojoHerokuappExpectedBody respPojo = response.as(PojoHerokuappExpectedBody.class);
 
-        assertEquals(expectedBody.getBooking().getFirstname(),respPojo.getBooking().getFirstname());
-        assertEquals(expectedBody.getBooking().getLastname(),respPojo.getBooking().getLastname());
-        assertEquals(expectedBody.getBooking().getTotalprice(),respPojo.getBooking().getTotalprice());
-        assertEquals(expectedBody.getBooking().isDepositpaid(),respPojo.getBooking().isDepositpaid());
-        assertEquals(expectedBody.getBooking().getAdditionalneeds(),respPojo.getBooking().getAdditionalneeds());
-        assertEquals(expectedBody.getBooking().getBookingdates().getCheckin(),respPojo.getBooking().getBookingdates().getCheckin());
-        assertEquals(expectedBody.getBooking().getBookingdates().getCheckout(),respPojo.getBooking().getBookingdates().getCheckout());
-
-
+        assertEquals(expectedBody.getBooking().getFirstname(), respPojo.getBooking().getFirstname());
+        assertEquals(expectedBody.getBooking().getLastname(), respPojo.getBooking().getLastname());
+        assertEquals(expectedBody.getBooking().getTotalprice(), respPojo.getBooking().getTotalprice());
+        assertEquals(expectedBody.getBooking().isDepositpaid(), respPojo.getBooking().isDepositpaid());
+        assertEquals(expectedBody.getBooking().getAdditionalneeds(), respPojo.getBooking().getAdditionalneeds());
+        assertEquals(expectedBody.getBooking().getBookingdates().getCheckin(), respPojo.getBooking().getBookingdates().getCheckin());
+        assertEquals(expectedBody.getBooking().getBookingdates().getCheckout(), respPojo.getBooking().getBookingdates().getCheckout());
 
 
     }

@@ -25,3 +25,12 @@
       #            },
       #    "message":"Successfully! Record has been fetched."
       #    }
+
+
+
+
+
+    # 1- URL VE BODY HAZIRLA
+    # 2- EXPECTED DATA HAZIRLA
+    # 3- RESPONSE U KAYDET
+    # 4- ASSERT ET
