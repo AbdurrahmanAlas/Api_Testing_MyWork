@@ -37,23 +37,72 @@ public class HerokuApp_Stepdefinitions {
     @Given("URL ve body hazirla")
     public void url_ve_body_hazirla() {
 
+        //1-a) https://restful-booker.herokuapp.com/booking
+
         spec.pathParams("pp1", "booking");
+
+        //1-b) Request body hazırlanıyor POJO ile hazırlıyoruz
+        //** EN İÇ PARANTEZDEN BAŞLANARAK POJOLAR HAZIRLANIR .
+        /* Request body
+           	           {
+           	                "firstname" : "Ahmet",
+           	                "lastname" : “Bulut",
+           	                "totalprice" : 500,
+           	                "depositpaid" : false,
+           	                "bookingdates" : {
+           	                         "checkin" : "2021-06-01",
+           	                         "checkout" : "2021-06-10"
+           	                                  },
+           	                "additionalneeds" : "wi-fi"
+           	            }
+        */
 
         bookingdate = new PojoHerokuappBookingdate("2021-06-01", "2021-06-10");
         reqBody = new PojoHerokuappBooking("Ahmet", "Bulut", 500, false, "wi-fi", bookingdate);
 
     }
 
+
+
+
     @Given("Expected Data hazirla")
     public void expected_data_hazirla() {
 
-        expectedBody = new PojoHerokuappExpectedBody(24, reqBody);
+        //2 EXPECTED DATA HAZIRLIYORUZ. BUNUN İÇİNDE POJO HAZIRLARIZ
 
+         /*
+    {
+                    "bookingid":24,
+                    "booking":{
+                        "firstname":"Ahmet",
+                        "lastname":"Bulut",
+                        "totalprice":500,
+                        "depositpaid":false,
+                        "bookingdates":{
+                            "checkin":"2021-06-01",
+                            "checkout":"2021-06-10"
+                                        }
+                        ,
+                        "additionalneeds":"wi-fi"
+                              }
+                    }
+     */
+
+
+
+
+        expectedBody = new PojoHerokuappExpectedBody(24, reqBody);
 
     }
 
+
+
+
+
     @Given("Response'i kaydet")
     public void response_i_kaydet() {
+
+        // 3- RESPONSE İ KAYDEDİYORUZ.
 
         response = given().
                 spec(spec).
