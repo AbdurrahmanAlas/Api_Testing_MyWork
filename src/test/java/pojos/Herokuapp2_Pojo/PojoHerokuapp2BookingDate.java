@@ -10,15 +10,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PojoHerokuapp2BookingDate {
 
-    /*
-     "bookingdates" : {
-      	                         "checkin" : "2021-06-01",
-      	                         "checkout" : "2021-06-10"
-      	                                  },
+
+         /*
+    {
+       "checkin":"2021-06-01",
+       "checkout":"2021-06-10"
+     }
      */
 
     private String checkin;
     private String checkout;
-
-
 }

@@ -32,7 +32,7 @@ public class PojoHerokuapp2Booking {
     private int totalprice;
     private boolean  depositpaid;
     private String additionalneeds;
-    private PojoHerokuapp2BookingDate bookingdates2;
+    private PojoHerokuappBookingdate bookingdates2;
 
 
 }
