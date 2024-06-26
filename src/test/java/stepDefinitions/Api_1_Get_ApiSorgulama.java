@@ -20,6 +20,8 @@ public class Api_1_Get_ApiSorgulama {
          ve response suresinin 5 sn’den kisa oldugunu manuel olarak test ediniz.
      */
 
+
+
     // 1 - Gonderecegimiz Request icin gerekli olan URL ve ihtiyacimiz varsa Request Body hazirla
     // 2 - Eger soruda bize verilmisse Expected Data hazirla
     // 3 - Bize donen Response'i Actual Data olarak kaydet
